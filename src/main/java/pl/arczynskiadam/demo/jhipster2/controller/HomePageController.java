@@ -11,7 +11,7 @@ public class HomePageController {
 
     @RequestMapping(method = GET, value = "/")
     public String index(Model model) {
-        model.addAttribute("test", "test");
+        model.addAttribute("msg", "Hello World from Spring!!!");
         return "index";
     }
 }
