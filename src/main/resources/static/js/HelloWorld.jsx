@@ -4,7 +4,7 @@ class HelloWorld extends React.Component {
     render() {
         return (
             <div>
-                Hello World from React!!!j
+                Hello World from React!!!
             </div>
         );
     }
