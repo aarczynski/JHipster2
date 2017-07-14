@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HelloWorld from './HelloWorld.jsx';
+import UserList from './UserList.jsx';
 
-ReactDOM.render(<HelloWorld />, document.getElementById('react-app'));
+ReactDOM.render(
+    <UserList/>,
+    document.getElementById('react-app')
+);

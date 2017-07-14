@@ -1,11 +1,13 @@
 import React from 'react';
 
 class HelloWorld extends React.Component {
+
     render() {
         return (
-            <div>
-                Hello World from React!!!
-            </div>
+            <tr>
+                <th>{this.props.user.firstName}</th>
+                <th>{this.props.user.lastName}</th>
+            </tr>
         );
     }
 }
