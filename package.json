@@ -4,7 +4,7 @@
   "description": "Demo project for Spring Boot + React + Webpack",
   "main": "main.js",
   "scripts": {
-    "watch": "webpack-dev-server --hot --content-base src/main/resources/templates",
+    "watch": "webpack-dev-server --hot",
     "build": "webpack"
   },
   "author": "Adam Arczynski",
