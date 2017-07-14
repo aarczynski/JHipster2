@@ -15,7 +15,7 @@ class HelloWorld extends React.Component {
     };
 
     getUsers = () => {
-        fetch('/users')
+        fetch('/users', { method: 'GET'})
             .then(response => response.json())
             .then(json => this.setState({ users: json }));
     }
