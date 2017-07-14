@@ -11,30 +11,36 @@ class HelloWorld extends React.Component {
     }
 
     componentDidMount() {
+        this.getUsers();
+    };
+
+    getUsers = () => {
         fetch('/users')
-            .then(res => res.json())
+            .then(response => response.json())
             .then(json => {
                 this.setState({ users: json })
             });
-    };
+    }
 
     render() {
-        var users = this.state.users.map((u, index) => {
-            var componentId = u + index;
-            return <User key={componentId} user={u}/>;
+        const users = this.state.users.map((u, index) => {
+            return <User key={`user-${index}`} user={u} />;
         });
         return (
-            <table>
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users}
-                </tbody>
-            </table>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users}
+                    </tbody>
+                </table>
+                <button onClick={this.getUsers}>Get Users</button>
+            </div>
         );
     }
 }
