@@ -26,3 +26,16 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-devtools")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+task npmInstall(type:Exec) {
+	commandLine = ["npm", "install"]
+}
+
+task webpack(type:Exec) {
+	commandLine = ["npm", "run", "build"]
+}
+
+compileJava.doLast {
+	tasks.npmInstall.execute()
+	tasks.webpack.execute()
+}
