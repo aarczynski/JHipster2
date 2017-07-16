@@ -11,7 +11,7 @@ import java.util.List;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
-public class GreetingController {
+public class UserController {
 
     @Autowired
     RandomUserService userService;
