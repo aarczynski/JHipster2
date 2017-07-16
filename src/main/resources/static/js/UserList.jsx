@@ -1,7 +1,8 @@
 import React from 'react';
 import User from './User.jsx';
+import { Jumbotron, Button } from 'react-bootstrap';
 
-class HelloWorld extends React.Component {
+class UserList extends React.Component {
 
     constructor(props) {
         super(props);
@@ -25,22 +26,27 @@ class HelloWorld extends React.Component {
             return <User key={`user-${index}`} user={u} />;
         });
         return (
-            <div>
-                <table>
-                    <thead>
+            <div className="container">
+                <Jumbotron>
+                    <h1>Users:</h1>
+                    <hr/>
+                    <table className="table table-striped">
+                        <thead>
                         <tr>
                             <th>First Name</th>
                             <th>Last Name</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {users}
-                    </tbody>
-                </table>
-                <button onClick={this.getUsers}>Get Users</button>
+                        </thead>
+                        <tbody>
+                            {users}
+                        </tbody>
+                    </table>
+                    <hr/>
+                    <Button bsStyle="primary" onClick={this.getUsers}>Get Users</Button>
+                </Jumbotron>
             </div>
         );
     }
 }
 
-export default HelloWorld;
+export default UserList;

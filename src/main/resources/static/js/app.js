@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import UserList from './UserList.jsx';
+import Main from './Main.jsx';
 
 ReactDOM.render(
-    <UserList/>,
+    <Main/>,
     document.getElementById('react-app')
 );
