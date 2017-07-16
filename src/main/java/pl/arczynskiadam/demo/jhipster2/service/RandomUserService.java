@@ -9,6 +9,8 @@ import java.util.List;
 @Service
 public class RandomUserService {
     public List<User> randomUsers() {
+        simulateErrorpossible();
+
         ArrayList<User> users = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             users.add(new User(getRandomFirstName(), getRandomLastName()));
@@ -24,5 +26,11 @@ public class RandomUserService {
     private String getRandomLastName() {
         String[] names = {"Kowalski", "Nowak", "Iksiński"};
         return names[(int)(Math.random() * names.length)];
+    }
+
+    private void simulateErrorpossible() {
+        if (Math.random() > 0.8) {
+            throw new RuntimeException("Simulated exception");
+        }
     }
 }
