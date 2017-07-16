@@ -5,13 +5,10 @@ class TextPanel extends React.Component {
 
     render() {
         return (
-            <div className="container">
-            <Jumbotron>
-                <Panel header="Lorem Ipsum">
-                    {this.props.text}
-                </Panel>
-            </Jumbotron>
-            </div>
+            <Panel header={this.props.header} style={{"marginTop": "1em"}}>
+                {this.props.text}
+            </Panel>
+
         );
     }
 }

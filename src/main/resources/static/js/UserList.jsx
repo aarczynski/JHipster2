@@ -51,7 +51,7 @@ class UserList extends React.Component {
         return (
             <div className="container">
                 <Jumbotron>
-                    <h1>Users:</h1>
+                    <h2>Users:</h2>
                     <hr/>
                     <table className="table table-striped">
                         <thead>
