@@ -44,7 +44,7 @@ class UserList extends React.Component {
     }
 
     showErrorDialog = (header, msg) => {
-        toast(<ErrorNotification text={header} msg={msg}/>, {
+        toast(<ErrorNotification header={header} text={msg}/>, {
             autoClose: 4000,
             type: toast.TYPE.ERROR,
             hideProgressBar: false,
