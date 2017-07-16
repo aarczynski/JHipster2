@@ -1,6 +1,6 @@
 import React from 'react';
 
-class HelloWorld extends React.Component {
+class User extends React.Component {
 
     render() {
         return (
@@ -12,4 +12,4 @@ class HelloWorld extends React.Component {
     }
 }
 
-export default HelloWorld;
+export default User;
