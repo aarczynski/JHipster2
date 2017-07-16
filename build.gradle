@@ -39,3 +39,11 @@ compileJava.doLast {
 	tasks.npmInstall.execute()
 	tasks.webpack.execute()
 }
+
+task cleanWebpack(type: Delete) {
+	delete file('src/main/resources/static/built')
+}
+
+clean.doLast {
+	tasks.cleanWebpack.execute()
+}
