@@ -26,7 +26,7 @@ class UserList extends React.Component {
                 if (response.status === 200) {
                     this.showSuccessDialog('HTTP 200', 'Users fetched from backend server');
                 } else if(response.status === 500) {
-                    this.showErrorDialog('HTTP 500', 'Inrenal Server Error')
+                    this.showErrorDialog('HTTP 500', 'Internal Server Error')
                 }
                 return response.json();
             })
