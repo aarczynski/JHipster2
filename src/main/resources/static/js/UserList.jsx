@@ -1,5 +1,7 @@
 import React from 'react';
 import User from './User.jsx';
+import SuccessNotification from "./notification/SuccessNotification.jsx";
+import ErrorNotification from "./notification/ErrorNotification.jsx";
 import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
@@ -20,9 +22,8 @@ class UserList extends React.Component {
     getUsers = () => {
         fetch('/users', { method: 'GET'})
             .then(response => {
-                console.log('res '+response);
                 if (response.status === 200) {
-                    this.showSuccessDialog('HTTP 200', 'Users fetched from backend server.');
+                    this.showSuccessDialog('HTTP 200', 'Users fetched from backend server');
                 } else if(response.status === 500) {
                     this.showErrorDialog('HTTP 500', 'Inrenal Server Error')
                 }
@@ -33,16 +34,7 @@ class UserList extends React.Component {
     }
 
     showSuccessDialog = (header, msg) => {
-        const Notification = ({ header, msg }) =>
-            <div>
-                <img width={48} height={48} src={'/img/ok.png'} style={{"float": "left"}} />
-                <div style={{"paddingLeft": "4.5em", "color": "green"}}>
-                    <h4>{header}</h4>
-                    <p>{msg}</p>
-                </div>
-            </div>;
-
-        toast(<Notification header={header} msg={msg}/>, {
+        toast(<SuccessNotification header={header} text={msg}/>, {
             autoClose: 4000,
             type: toast.TYPE.SUCCESS,
             hideProgressBar: false,
@@ -52,16 +44,7 @@ class UserList extends React.Component {
     }
 
     showErrorDialog = (header, msg) => {
-        const Notification = ({ header, msg }) =>
-            <div>
-                <img width={48} height={48} src={'/img/err.png'} style={{"float": "left"}} />
-                <div style={{"paddingLeft": "4.5em", "color": "red"}}>
-                    <h4>{header}</h4>
-                    <p>{msg}</p>
-                </div>
-            </div>;
-
-        toast(<Notification header={header} msg={msg}/>, {
+        toast(<ErrorNotification text={header} msg={msg}/>, {
             autoClose: 4000,
             type: toast.TYPE.ERROR,
             hideProgressBar: false,
