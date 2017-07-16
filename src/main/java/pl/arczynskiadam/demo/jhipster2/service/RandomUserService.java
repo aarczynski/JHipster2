@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class RandomUserService {
     public List<User> randomUsers() {
-        simulateErrorpossible();
+        simulateError();
 
         ArrayList<User> users = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -28,7 +28,7 @@ public class RandomUserService {
         return names[(int)(Math.random() * names.length)];
     }
 
-    private void simulateErrorpossible() {
+    private void simulateError() {
         if (Math.random() > 0.8) {
             throw new RuntimeException("Simulated exception");
         }
