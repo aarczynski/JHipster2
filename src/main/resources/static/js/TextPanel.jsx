@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel, Jumbotron } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
 
 class TextPanel extends React.Component {
 
