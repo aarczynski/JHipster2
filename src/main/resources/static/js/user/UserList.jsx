@@ -1,5 +1,6 @@
 import React from 'react';
 import User from './User.jsx';
+import HrSeparator from '../util/HrSeparator.jsx';
 import SuccessNotification from "../notification/SuccessNotification.jsx";
 import ErrorNotification from "../notification/ErrorNotification.jsx";
 import { Button } from 'react-bootstrap';
@@ -61,11 +62,12 @@ class UserList extends React.Component {
             <div>
                 <h3>Options:</h3>
                 <Button bsStyle="primary" onClick={this.getUsers}>Get Users</Button>
+                <HrSeparator/>
             </div>;
         const usersHtml =
             <div>
                 <h2>Users:</h2>
-                <hr/>
+                <HrSeparator/>
                 <table className="table table-striped">
                     <thead>
                     <tr>
@@ -77,7 +79,7 @@ class UserList extends React.Component {
                     {users}
                     </tbody>
                 </table>
-                <hr/>
+                <HrSeparator/>
             </div>;
         if (this.state.error) {
             return (
