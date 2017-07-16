@@ -1,7 +1,7 @@
 import React from 'react';
 import User from './User.jsx';
-import SuccessNotification from "./notification/SuccessNotification.jsx";
-import ErrorNotification from "./notification/ErrorNotification.jsx";
+import SuccessNotification from "../notification/SuccessNotification.jsx";
+import ErrorNotification from "../notification/ErrorNotification.jsx";
 import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 

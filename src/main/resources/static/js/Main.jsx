@@ -1,6 +1,6 @@
 import React from 'react';
-import UserList from './UserList.jsx';
-import TextPanel from './TextPanel.jsx';
+import UserList from './user/UserList.jsx';
+import TextPanel from './util/TextPanel.jsx';
 import { Navbar, Nav, NavItem, Tabs, Tab, Jumbotron } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
