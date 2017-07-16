@@ -2,6 +2,8 @@ import React from 'react';
 import UserList from './UserList.jsx';
 import TextPanel from './TextPanel.jsx';
 import { Navbar, Nav, NavItem, Tabs, Tab } from 'react-bootstrap';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 class Main extends React.Component {
 
@@ -28,6 +30,7 @@ class Main extends React.Component {
                         <TextPanel text="Lorem ipsum dolor sit amet, bonorum tractatos quo eu, vel te explicari laboramus conclusionemque, usu in euripidis quaerendum conclusionemque. Eos prima nominavi complectitur ea. Vix tritani laoreet deserunt in, an postea bonorum mnesarchum sit. Aliquid complectitur se"/>
                     </Tab>
                 </Tabs>
+                <ToastContainer />
             </div>
         );
     }
