@@ -5,9 +5,11 @@ class TextPanel extends React.Component {
 
     render() {
         return (
-            <Panel header={this.props.header} style={{"margin": "1em 0"}}>
-                {this.props.children}
-            </Panel>
+            <div className="textPanelContainer">
+                <Panel header={this.props.header}>
+                    {this.props.children}
+                </Panel>
+            </div>
         );
     }
 }

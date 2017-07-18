@@ -5,7 +5,7 @@ class HrSeparator extends React.Component {
 
     render() {
         return (
-            <hr style={{"margin": "1em 0", "borderColor": "#959595"}}/>
+            <hr className="hrSeparator"/>
         );
     }
 }

@@ -4,6 +4,7 @@ import TextPanel from './util/TextPanel.jsx';
 import { Navbar, Nav, NavItem, Tabs, Tab, Jumbotron } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import '../css/main.scss';
 
 class Main extends React.Component {
 
