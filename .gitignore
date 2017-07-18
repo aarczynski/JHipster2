@@ -26,3 +26,4 @@ nbdist/
 
 node_modules
 src/main/resources/static/built/
+npm-debug.log
