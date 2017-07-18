@@ -7,7 +7,8 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, './src/main/resources/static/built'),
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: "/built/"
     },
 
     devServer: {
