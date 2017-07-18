@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "watch": "webpack-dev-server --hot",
-    "build": "webpack"
+    "build": "webpack",
+    "build-prod": "webpack -p"
   },
   "author": "Adam Arczynski",
   "license": "ISC",

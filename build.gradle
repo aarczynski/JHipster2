@@ -31,7 +31,7 @@ task npmInstall(type:Exec) {
 }
 
 task webpack(type:Exec) {
-	commandLine = ["npm", "run", "build"]
+	commandLine = ["npm", "run", "build-prod"]
 }
 
 compileJava.doLast {
