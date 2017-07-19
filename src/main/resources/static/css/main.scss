@@ -20,6 +20,12 @@ body {
     bottom: 0.33em;
   }
 }
+@mixin font($size, $weight) {
+  font: {
+    size: $size;
+    weight: $weight;
+  };
+}
 
 .hrSeparator {
   @include horizontalSeparator();
@@ -34,16 +40,10 @@ body {
 .notificationContainer {
   padding-left: 4.5em;
   div {
-    font: {
-      weight: 300;
-      size: 1.5em;
-    }
+    @include font(1.5em, 500);
     @include horizontalSeparator();
   }
   p {
-    font: {
-      weight: 200;
-      size: 1.1em;
-    }
+    @include font(1.2em, 200);
   }
 }
