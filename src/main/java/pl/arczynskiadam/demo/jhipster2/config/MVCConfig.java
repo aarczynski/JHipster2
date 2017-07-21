@@ -7,8 +7,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class MVCConfig extends WebMvcConfigurerAdapter {
 
+    public static final String VIEWS_INDEX = "forward:/views/index.html";
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("forward:/views/index.html");
+        registry.addViewController("/").setViewName(VIEWS_INDEX);
+        registry.addViewController("/about").setViewName("forward:/views/index.html");
     }
 }
