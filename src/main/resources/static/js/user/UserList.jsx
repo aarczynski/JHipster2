@@ -56,7 +56,7 @@ class UserList extends React.Component {
 
     render() {
         const users = this.state.users.map((u, index) => {
-            return <User key={`user-${index}`} user={u} />;
+            return <User key={`user-${index}`} {...u} />;
         });
         const optionsHtml =
             <div>
