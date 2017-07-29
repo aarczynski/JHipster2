@@ -27,11 +27,13 @@ dependencies {
 }
 
 task npmInstall(type: Exec) {
-	commandLine = ["npm", "install"]
+	executable = 'npm'
+	args = ['install']
 }
 
 task webpack(type: Exec) {
-	commandLine = ["npm", "run", "build-prod"]
+	executable = 'npm'
+	args = ['run', 'build-prod']
 }
 
 compileJava.doLast {
