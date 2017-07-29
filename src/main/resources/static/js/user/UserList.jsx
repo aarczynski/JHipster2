@@ -4,6 +4,7 @@ import User from './User.jsx';
 import HrSeparator from '../util/HrSeparator.jsx';
 import Spinner from '../util/Spinner.jsx';
 import { Button } from 'react-bootstrap';
+import axios from 'axios';
 
 class UserList extends React.Component {
 
@@ -21,20 +22,16 @@ class UserList extends React.Component {
 
     getUsers = () => {
         this.setState({ ...this.state, loading: true })
-        fetch('/users', { method: 'GET'})
+        axios.get('/users')
             .then(response => {
-                if (response.status === 200) {
-                    Dialogs.showSuccessDialog('HTTP 200', 'Users fetched from backend server');
-                } else if(response.status === 500) {
-                    Dialogs.showErrorDialog('HTTP 500', 'Internal Server Error')
+                this.setState({ users: response.data, loading: false });
+                Dialogs.showSuccessDialog('HTTP 200', 'Users fetched from backend server');
+            })
+            .catch(error => {
+                this.setState({ users: [], loading: false })
+                if (/5\d\d/.test(error.response. status)) {
+                    Dialogs.showErrorDialog('HTTP 500', 'Internal Server Error');
                 }
-                return response.json();
-            })
-            .then(json => {
-                this.setState({ users: json, loading: false })
-            })
-            .catch(err => {
-                this.setState({ users: [], loading: false})
             });
     };
 
