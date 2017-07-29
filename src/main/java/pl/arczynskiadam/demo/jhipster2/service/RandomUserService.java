@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 public class RandomUserService {
     public List<User> randomUsers() {
+        simulateLongResponseTime();
         simulateError();
 
         ArrayList<User> users = new ArrayList<>();
@@ -31,6 +32,13 @@ public class RandomUserService {
     private void simulateError() {
         if (Math.random() > 0.8) {
             throw new RuntimeException("Simulated exception");
+        }
+    }
+
+    private void simulateLongResponseTime() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
         }
     }
 }

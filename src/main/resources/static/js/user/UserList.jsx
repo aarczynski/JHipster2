@@ -1,6 +1,7 @@
 import React from 'react';
 import User from './User.jsx';
 import HrSeparator from '../util/HrSeparator.jsx';
+import Spinner from '../util/Spinner.jsx';
 import SuccessNotification from "../notification/SuccessNotification.jsx";
 import ErrorNotification from "../notification/ErrorNotification.jsx";
 import { Button } from 'react-bootstrap';
@@ -12,7 +13,7 @@ class UserList extends React.Component {
         super(props);
         this.state = {
             users: [],
-            error: false
+            status: 'LOADING'
         };
     }
 
@@ -21,6 +22,7 @@ class UserList extends React.Component {
     };
 
     getUsers = () => {
+        this.setState({ users: [], status: 'LOADING' })
         fetch('/users', { method: 'GET'})
             .then(response => {
                 if (response.status === 200) {
@@ -30,8 +32,10 @@ class UserList extends React.Component {
                 }
                 return response.json();
             })
-            .then(json => this.setState({ users: json, error: false }))
-            .catch(err => this.setState({ users: [], error: true }));
+            .then(json => {
+                this.setState({ users: json, status: 'READY' })
+            })
+            .catch(err => this.setState({ users: [], status: 'ERROR'}));
     }
 
     showSuccessDialog = (header, msg) => {
@@ -81,19 +85,24 @@ class UserList extends React.Component {
                 </table>
                 <HrSeparator/>
             </div>;
-        if (this.state.error) {
-            return (
-                <div className="container">
-                    {optionsHtml}
-                </div>
-            );
-        } else {
-            return (
-                <div className="container">
-                    {optionsHtml}
-                    {usersHtml}
-                </div>
-            );
+        switch (this.state.status) {
+            case 'LOADING':
+                return (
+                    <Spinner img="/img/spinner.gif">LOADING...</Spinner>
+                );
+            case 'ERROR':
+                return (
+                    <div className="container">
+                        {optionsHtml}
+                    </div>
+                );
+            case 'READY':
+                return (
+                    <div className="container">
+                        {optionsHtml}
+                        {usersHtml}
+                    </div>
+                );
         }
     }
 }

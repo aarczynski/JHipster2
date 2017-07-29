@@ -47,3 +47,15 @@ body {
     @include font(1.2em, 200);
   }
 }
+.spinner {
+  position: relative;
+  width: 200px;
+  margin: auto;
+  div {
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    width: 100%;
+    @include font(1.5em, 600);
+  }
+}
