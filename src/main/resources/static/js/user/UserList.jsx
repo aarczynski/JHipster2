@@ -1,11 +1,9 @@
 import React from 'react';
+import * as Dialogs from '../util/Dialog.jsx';
 import User from './User.jsx';
 import HrSeparator from '../util/HrSeparator.jsx';
 import Spinner from '../util/Spinner.jsx';
-import SuccessNotification from "../notification/SuccessNotification.jsx";
-import ErrorNotification from "../notification/ErrorNotification.jsx";
 import { Button } from 'react-bootstrap';
-import { toast } from 'react-toastify';
 
 class UserList extends React.Component {
 
@@ -13,7 +11,7 @@ class UserList extends React.Component {
         super(props);
         this.state = {
             users: [],
-            status: 'LOADING'
+            loading: false
         };
     }
 
@@ -22,41 +20,23 @@ class UserList extends React.Component {
     };
 
     getUsers = () => {
-        this.setState({ users: [], status: 'LOADING' })
+        this.setState({ ...this.state, loading: true })
         fetch('/users', { method: 'GET'})
             .then(response => {
                 if (response.status === 200) {
-                    this.showSuccessDialog('HTTP 200', 'Users fetched from backend server');
+                    Dialogs.showSuccessDialog('HTTP 200', 'Users fetched from backend server');
                 } else if(response.status === 500) {
-                    this.showErrorDialog('HTTP 500', 'Internal Server Error')
+                    Dialogs.showErrorDialog('HTTP 500', 'Internal Server Error')
                 }
                 return response.json();
             })
             .then(json => {
-                this.setState({ users: json, status: 'READY' })
+                this.setState({ users: json, loading: false })
             })
-            .catch(err => this.setState({ users: [], status: 'ERROR'}));
-    }
-
-    showSuccessDialog = (header, msg) => {
-        toast(<SuccessNotification header={header} text={msg}/>, {
-            autoClose: 4000,
-            type: toast.TYPE.SUCCESS,
-            hideProgressBar: false,
-            position: toast.POSITION.TOP_RIGHT,
-            closeButton: 'default'
-        });
-    }
-
-    showErrorDialog = (header, msg) => {
-        toast(<ErrorNotification header={header} text={msg}/>, {
-            autoClose: 4000,
-            type: toast.TYPE.ERROR,
-            hideProgressBar: false,
-            position: toast.POSITION.TOP_RIGHT,
-            closeButton: 'default'
-        });
-    }
+            .catch(err => {
+                this.setState({ users: [], loading: false})
+            });
+    };
 
     render() {
         const users = this.state.users.map((u, index) => {
@@ -85,25 +65,17 @@ class UserList extends React.Component {
                 </table>
                 <HrSeparator/>
             </div>;
-        switch (this.state.status) {
-            case 'LOADING':
-                return (
-                    <Spinner img="/img/spinner.gif">LOADING...</Spinner>
-                );
-            case 'ERROR':
-                return (
-                    <div className="container">
-                        {optionsHtml}
-                    </div>
-                );
-            case 'READY':
-                return (
-                    <div className="container">
-                        {optionsHtml}
-                        {usersHtml}
-                    </div>
-                );
-        }
+            return (
+                <div className="container">
+                    {optionsHtml}
+                    {this.state.users.length > 0
+                        ? usersHtml
+                        : null}
+                    {this.state.loading
+                        ? <Spinner img="/img/spinner.gif">LOADING...</Spinner>
+                        : null}
+                </div>
+            );
     }
 }
 
