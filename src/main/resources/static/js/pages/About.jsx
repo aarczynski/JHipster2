@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs, Tab, Jumbotron } from 'react-bootstrap';
 
-class Home extends React.Component {
+class About extends React.Component {
 
     render() {
         return (
@@ -12,4 +12,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default About;
