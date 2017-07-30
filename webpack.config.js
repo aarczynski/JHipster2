@@ -2,12 +2,16 @@ var path = require("path");
 
 module.exports = {
 
-    entry: path.resolve(__dirname, './src/main/resources/static/js/app.js'),
+    entry: path.resolve(__dirname, './src/main/resources/static/js/app.jsx'),
 
     output: {
         path: path.resolve(__dirname, './src/main/resources/static/built'),
         filename: "bundle.js",
         publicPath: "/built/"
+    },
+
+    resolve: {
+        extensions: ['.js', '.jsx']
     },
 
     devServer: {

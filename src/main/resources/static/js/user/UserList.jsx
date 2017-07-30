@@ -1,10 +1,10 @@
 import React from 'react';
-import * as Dialogs from '../util/Dialog.jsx';
-import User from './User.jsx';
-import HrSeparator from '../util/HrSeparator.jsx';
-import Spinner from '../util/Spinner.jsx';
 import { Button } from 'react-bootstrap';
+import * as Dialogs from '../util/Dialog';
 import axios from 'axios';
+import User from './User';
+import HrSeparator from '../util/HrSeparator';
+import Spinner from '../util/Spinner';
 
 class UserList extends React.Component {
 

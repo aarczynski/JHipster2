@@ -1,10 +1,10 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastify';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
-import Home from './pages/Home.jsx'
-import About from './pages/About.jsx'
 import 'react-toastify/dist/ReactToastify.min.css';
+import Home from './pages/Home'
+import About from './pages/About'
 import '../css/main.scss';
 
 class Main extends React.Component {
