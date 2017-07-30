@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import SuccessNotification from "../notification/SuccessNotification.jsx";
-import ErrorNotification from "../notification/ErrorNotification.jsx";
+import SuccessNotification from "../components/notification/SuccessNotification.jsx";
+import ErrorNotification from "../components/notification/ErrorNotification.jsx";
 
 export function showSuccessDialog(header, msg) {
     toast(<SuccessNotification header={header} text={msg}/>, {

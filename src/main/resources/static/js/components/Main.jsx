@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Home from './pages/Home'
 import About from './pages/About'
-import '../css/main.scss';
+import '../../css/main.scss';
 
 class Main extends React.Component {
 

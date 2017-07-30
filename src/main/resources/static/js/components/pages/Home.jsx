@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs, Tab, Jumbotron } from 'react-bootstrap';
-import UserList from './../user/UserList';
-import TextPanel from './../util/TextPanel';
+import UserList from '../user/UserList';
+import TextPanel from '../util/TextPanel';
 
 class Home extends React.Component {
 
