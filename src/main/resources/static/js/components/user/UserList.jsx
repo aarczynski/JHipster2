@@ -29,7 +29,7 @@ class UserList extends React.Component {
             })
             .catch(error => {
                 this.setState({ users: [], loading: false })
-                if (/5\d\d/.test(error.response. status)) {
+                if (/5\d\d/.test(error.response.status)) {
                     Dialogs.showErrorDialog('HTTP 500', 'Internal Server Error');
                 }
             });
