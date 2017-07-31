@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import '../../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Home from './pages/Home'
