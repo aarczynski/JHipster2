@@ -7,12 +7,14 @@ body {
 
 .success {
   color: $successColor;
+  background: #edffed;
 }
 .error {
   color: $errorColor;
+  background: #ffeded;
 }
 
-@mixin horizontalSeparator() {
+@mixin horizontalSpacing() {
   margin: {
     left: 0;
     right: 0;
@@ -28,26 +30,46 @@ body {
 }
 
 .hrSeparator {
-  @include horizontalSeparator();
+  @include horizontalSpacing();
   border-color: #959595;
 }
 .textPanelContainer {
-  @include horizontalSeparator();
+  @include horizontalSpacing();
 }
 .floatLeft {
   float: left;
 }
-.notificationContainer {
-  padding-left: 4.5em;
-  div {
-    @include font(1.5em, 500);
-    @include horizontalSeparator();
-  }
-  p {
-    @include font(1.2em, 200);
+
+.toastify {
+  width: 380px;
+}
+.toast-notification {
+  border: {
+    left: {
+      style: solid;
+      width: 6px;
+    };
+  };
+  .toast-notification-content {
+    padding-left: 4.5em;
+    div {
+      @include font(1.5em, 600);
+      @include horizontalSpacing();
+    }
+    p {
+      @include font(1.2em, 200);
+    }
   }
 }
+.toast-notification-progress-success {
+  background: $successColor;
+}
+.toast-notification-progress-error {
+  background: $errorColor;
+}
+
 .spinner {
+  z-index: 999;
   position: fixed;
   top: 0;
   left: 0;

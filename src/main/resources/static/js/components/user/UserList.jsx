@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import * as Dialogs from '../../functions/dialog';
+import * as Dialogs from '../../functions/notification';
 import axios from 'axios';
 import User from './User';
 import HrSeparator from '../util/HrSeparator';
