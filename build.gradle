@@ -26,18 +26,18 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-task npmInstall(type: Exec) {
-	executable = 'npm'
+task yarnInstall(type: Exec) {
+	executable = 'yarn'
 	args = ['install']
 }
 
 task webpack(type: Exec) {
-	executable = 'npm'
+	executable = 'yarn'
 	args = ['run', 'build-prod']
 }
 
 compileJava.doLast {
-	tasks.npmInstall.execute()
+	tasks.yarnInstall.execute()
 	tasks.webpack.execute()
 }
 
