@@ -1,17 +1,19 @@
-$successColor: green;
-$errorColor: red;
+$success-primaryColor: green;
+$success-secondaryColor: #edffed;
+$error-primaryColor: #000000;
+$error-secondaryColor: #ffeded;
 
 body {
   overflow-y: scroll;
 }
 
 .success {
-  color: $successColor;
-  background: #edffed;
+  color: $success-primaryColor;
+  background: $success-secondaryColor;
 }
 .error {
-  color: $errorColor;
-  background: #ffeded;
+  color: $error-primaryColor;
+  background: $error-secondaryColor;
 }
 
 @mixin horizontalSpacing() {
@@ -62,10 +64,10 @@ body {
   }
 }
 .toast-notification-progress-success {
-  background: $successColor;
+  background: $success-primaryColor;
 }
 .toast-notification-progress-error {
-  background: $errorColor;
+  background: $error-primaryColor;
 }
 
 .spinner {

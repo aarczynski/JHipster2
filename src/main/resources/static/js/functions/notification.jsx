@@ -12,7 +12,7 @@ var toastCommonConfig = {
 
 export function showSuccessDialog(header, msg) {
     toast(<SuccessNotification header={header} text={msg}/>,
-        Object.assign(toastCommonConfig, {
+        Object.assign({}, toastCommonConfig, {
             className: 'toast-notification success',
             progressClassName: 'toast-notification-progress-success'
         })
@@ -21,7 +21,7 @@ export function showSuccessDialog(header, msg) {
 
 export function showErrorDialog(header, msg) {
     toast(<ErrorNotification header={header} text={msg}/>,
-        Object.assign(toastCommonConfig, {
+        Object.assign({}, toastCommonConfig, {
             className: 'toast-notification error',
             progressClassName: 'toast-notification-progress-error'
         })
