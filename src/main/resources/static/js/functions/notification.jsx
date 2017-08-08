@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import SuccessNotification from "../components/notification/SuccessNotification.jsx";
-import ErrorNotification from "../components/notification/ErrorNotification.jsx";
+import SuccessNotification from "../components/notification/SuccessNotification";
+import ErrorNotification from "../components/notification/ErrorNotification";
 
 var toastCommonConfig = {
     autoClose: 4000,
