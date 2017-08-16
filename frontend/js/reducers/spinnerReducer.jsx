@@ -11,6 +11,7 @@ export default (state = initialState, action) => {
             break;
         case HIDE_SPINNER:
             state = {show: false}
+            break;
     }
     return state;
 };
