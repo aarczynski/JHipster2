@@ -17,7 +17,6 @@ module.exports = {
     },
 
     devServer: {
-        inline: true,
         port: 9090,
         proxy: {
             '/': {

@@ -7,7 +7,7 @@
   "author": "Adam Arczynski <adam.arczynski@ocado.com>",
   "license": "MIT",
   "scripts": {
-    "watch": "webpack-dev-server --hot --devtool source-map",
+    "watch": "webpack-dev-server --inline --devtool source-map",
     "build": "webpack",
     "build-prod": "webpack -p"
   },
