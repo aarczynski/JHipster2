@@ -1,48 +1,25 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import * as Dialogs from '../../functions/notification';
-import axios from 'axios';
+import { connect } from 'react-redux';
 import User from './User';
 import HrSeparator from '../util/HrSeparator';
 import Spinner from '../util/Spinner';
+import { fetchUsers } from '../../actions/http';
 
 class UserList extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            users: [],
-            loading: false
-        };
-    }
-
     componentDidMount() {
-        this.getUsers();
-    };
-
-    getUsers = () => {
-        this.setState({ ...this.state, loading: true })
-        axios.get('/users')
-            .then(response => {
-                this.setState({ users: response.data, loading: false });
-                Dialogs.showSuccessDialog('HTTP 200', 'Users fetched from backend server');
-            })
-            .catch(error => {
-                this.setState({ users: [], loading: false })
-                if (/5\d\d/.test(error.response.status)) {
-                    Dialogs.showErrorDialog('HTTP 500', 'Internal Server Error');
-                }
-            });
+        this.props.loadUsers();
     };
 
     render() {
-        const users = this.state.users.map((u, index) => {
+        const users = this.props.users.map((u, index) => {
             return <User key={`user-${index}`} {...u} />;
         });
         const optionsHtml =
             <div>
                 <h3>Options:</h3>
-                <Button bsStyle="primary" onClick={this.getUsers}>Get Users</Button>
+                <Button bsStyle="primary" onClick={this.props.loadUsers}>Get Users</Button>
                 <HrSeparator/>
             </div>;
         const usersHtml =
@@ -65,10 +42,10 @@ class UserList extends React.Component {
             return (
                 <div className="container">
                     {optionsHtml}
-                    {this.state.users.length > 0
+                    {this.props.users.length > 0
                         ? usersHtml
                         : null}
-                    {this.state.loading
+                    {this.props.loading
                         ? <Spinner img="/img/spinner.gif">LOADING...</Spinner>
                         : null}
                 </div>
@@ -76,4 +53,17 @@ class UserList extends React.Component {
     }
 }
 
-export default UserList;
+const mapStateToProps = (state) => {
+    return {
+        loading: state.spinnerReducer.show,
+        users: state.usersReducer.users
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadUsers: () => dispatch(fetchUsers())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserList);
