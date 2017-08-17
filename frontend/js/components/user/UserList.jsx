@@ -9,7 +9,7 @@ import { fetchUsers } from '../../actions/http';
 class UserList extends React.Component {
 
     componentDidMount() {
-        fetchUsers();
+        this.props.loadUsers();
     };
 
     render() {
@@ -19,7 +19,7 @@ class UserList extends React.Component {
         const optionsHtml =
             <div>
                 <h3>Options:</h3>
-                <Button bsStyle="primary" onClick={fetchUsers}>Get Users</Button>
+                <Button bsStyle="primary" onClick={this.props.loadUsers}>Get Users</Button>
                 <HrSeparator/>
             </div>;
         const usersHtml =
@@ -60,4 +60,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {})(UserList);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadUsers: fetchUsers
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserList);
