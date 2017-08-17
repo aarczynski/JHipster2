@@ -62,7 +62,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadUsers: fetchUsers
+        loadUsers: () => dispatch(fetchUsers())
     }
 }
 
