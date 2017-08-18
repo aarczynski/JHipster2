@@ -25,5 +25,5 @@ nbdist/
 .nb-gradle/
 
 node_modules
-src/main/resources/static/built/
+frontend/built/
 yarn-error.log

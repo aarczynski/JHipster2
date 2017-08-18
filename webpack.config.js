@@ -7,7 +7,7 @@ module.exports = {
     entry: path.resolve(__dirname, './frontend/js/app.jsx'),
 
     output: {
-        path: path.resolve(__dirname, './src/main/resources/static/built'),
+        path: path.resolve(__dirname, './frontend/built'),
         filename: "bundle.js",
         publicPath: "/built/"
     },
@@ -18,12 +18,7 @@ module.exports = {
 
     devServer: {
         port: 9090,
-        proxy: {
-            '/': {
-                target: 'http://localhost:8080',
-                secure: false
-            }
-        }
+        contentBase: path.resolve(__dirname, './frontend/'),
     },
 
     module: {
@@ -44,10 +39,6 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     use: ['css-loader', 'sass-loader']
                 })
-            },
-            {
-                test: /\.(woff2?|eot|ttf|svg)$/,
-                use: ['file-loader']
             }
         ]
     },

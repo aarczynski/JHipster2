@@ -1,93 +1,13 @@
-$success-primaryColor: green;
-$success-secondaryColor: #edffed;
-$error-primaryColor: red;
-$error-secondaryColor: #ffeded;
-
-body {
-  overflow-y: scroll;
-}
-
-.success {
-  color: $success-primaryColor;
-  background: $success-secondaryColor;
-}
-.error {
-  color: $error-primaryColor;
-  background: $error-secondaryColor;
-}
-
-@mixin horizontalSpacing() {
-  margin: {
-    left: 0;
-    right: 0;
-    top: 0.33em;
-    bottom: 0.33em;
-  }
-}
-@mixin font($size, $weight) {
-  font: {
-    size: $size;
-    weight: $weight;
+.parentComponent {
+  background: {
+    color: chocolate;
   };
+  padding: 25px;
 }
-
-.hrSeparator {
-  @include horizontalSpacing();
-  border-color: #959595;
-}
-.textPanelContainer {
-  @include horizontalSpacing();
-}
-.floatLeft {
-  float: left;
-}
-
-.toastify {
-  width: 380px;
-}
-.toast-notification {
-  border: {
-    left: {
-      style: solid;
-      width: 6px;
-    };
+.childComponent {
+  width: 250px;
+  height: 75px;
+  background: {
+    color: brown;
   };
-  .toast-notification-content {
-    padding-left: 4.5em;
-    div {
-      @include font(1.5em, 600);
-      @include horizontalSpacing();
-    }
-    p {
-      @include font(1.2em, 200);
-    }
-  }
-}
-.toast-notification-progress-success {
-  background: $success-primaryColor;
-}
-.toast-notification-progress-error {
-  background: $error-primaryColor;
-}
-
-.spinner {
-  z-index: 999;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(220, 220, 220, 0.9);
-  div {
-    position: absolute;
-    text-align: center;
-    top: calc(50% + 100px);
-    width: 100%;
-    @include font(1.5em, 600);
-  }
-  img {
-    position: absolute;
-    top: calc(50% - 115px);
-    left: calc(50% - 100px);
-  }
 }
