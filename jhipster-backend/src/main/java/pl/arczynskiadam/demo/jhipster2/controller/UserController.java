@@ -11,6 +11,7 @@ import java.util.List;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
+@RequestMapping("/api")
 public class UserController {
 
     @Autowired

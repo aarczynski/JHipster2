@@ -1,0 +1,29 @@
+task clean(type: Delete) {
+    delete file('resources/static/built')
+    delete file('build')
+}
+
+task yarnInstall(type: Exec) {
+    executable = 'yarn'
+    args = ['install']
+}
+
+task buildWebpack(type: Exec, dependsOn: 'yarnInstall') {
+    executable = 'yarn'
+    args = ['run', 'build-prod']
+}
+
+task dist(type: Jar, dependsOn: 'buildWebpack') {
+    from 'resources/static'
+    into 'META-INF/resources'
+    destinationDir = buildDir
+    baseName = project.name
+}
+
+configurations {
+    archives
+}
+
+artifacts {
+    archives dist
+}

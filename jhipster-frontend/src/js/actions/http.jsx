@@ -6,7 +6,7 @@ import { showSpinner, hideSpinner } from '../actions/spinner';
 export function fetchUsers() {
     return function(dispatch) {
         dispatch(showSpinner());
-        axios.get('/users')
+        axios.get('/api/users')
             .then(response => {
                 dispatch(displayUsers(response.data));
                 dispatch(hideSpinner());
