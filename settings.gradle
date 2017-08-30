@@ -1,1 +1,2 @@
 rootProject.name = 'JHipster'
+include 'jhipster-frontend', 'jhipster-backend'

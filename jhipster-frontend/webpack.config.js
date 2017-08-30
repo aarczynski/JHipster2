@@ -4,10 +4,10 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
 
-    entry: path.resolve(__dirname, './frontend/js/app.jsx'),
+    entry: path.resolve(__dirname, './src/js/app.jsx'),
 
     output: {
-        path: path.resolve(__dirname, './src/main/resources/static/built'),
+        path: path.resolve(__dirname, './resources/static/built'),
         filename: "bundle.js",
         publicPath: "/built/"
     },
@@ -19,11 +19,12 @@ module.exports = {
     devServer: {
         port: 9090,
         proxy: {
-            '/': {
+            '/api': {
                 target: 'http://localhost:8080',
                 secure: false
-            }
-        }
+            },
+        },
+        contentBase: __dirname + '/resources/static/'
     },
 
     module: {
